@@ -54,7 +54,6 @@ document.querySelector('.check').addEventListener('click', function () {
 
 const resetButton = document.querySelector('.again');
 resetButton.addEventListener('click', () => {
-  alert('hello world');
   // keep the highest score if it's better than current max score
   if (
     score > highScore &&
