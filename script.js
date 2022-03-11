@@ -4,6 +4,10 @@ const drawSecretNumber = function () {
   return Math.floor(Math.random() * 20) + 1;
 };
 
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
 let secretNumber = drawSecretNumber();
 let score = 20;
 let highScore = 0;
@@ -20,7 +24,7 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     document.querySelector('.message').innerHTML = 'Not a number!';
   } else if (guess === secretNumber) {
-    message.textContent = `You're right!`;
+    displayMessage(`You're right!`);
     score++;
     document.querySelector('.score').textContent = score;
 
@@ -33,12 +37,11 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      message.textContent =
-        guess > secretNumber ? 'Too damn high!' : 'Too low!';
+      displayMessage(guess > secretNumber ? 'Too damn high!' : 'Too low!');
       score--;
       document.querySelector('.score').textContent = score;
     } else {
-      message.textContent = `You've lost the game!`;
+      displayMessage(`You've lost the game!`);
       score = 0;
       document.querySelector('.score').textContent = score;
     }
@@ -51,7 +54,7 @@ resetButton.addEventListener('click', () => {
   secretNumber = drawSecretNumber();
 
   // reset message
-  message.textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
 
   // restore background color
   document.querySelector('body').style.backgroundColor = '#222';
