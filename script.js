@@ -31,19 +31,10 @@ document.querySelector('.check').addEventListener('click', function () {
       highScore = score;
       document.querySelector('.highscore').innerHTML = highScore;
     }
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      message.textContent = 'Too damn high!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      message.textContent = `You've lost the game!`;
-      score = 0;
-      document.querySelector('.score').textContent = score;
-    }
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      message.textContent = 'Too low!';
+      message.textContent =
+        guess > secretNumber ? 'Too damn high!' : 'Too low!';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
