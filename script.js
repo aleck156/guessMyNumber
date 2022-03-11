@@ -12,8 +12,6 @@ let secretNumber = drawSecretNumber();
 let score = 20;
 let highScore = 0;
 
-let message = document.querySelector('.message');
-
 // for input fields, we use .value instead of .textContent
 document.querySelector('.guess').value = '';
 
@@ -22,7 +20,7 @@ document.querySelector('.check').addEventListener('click', function () {
   console.log(guess, typeof guess);
 
   if (!guess) {
-    document.querySelector('.message').innerHTML = 'Not a number!';
+    displayMessage('Not a number!');
   } else if (guess === secretNumber) {
     displayMessage(`You're right!`);
     score++;
