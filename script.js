@@ -55,6 +55,7 @@ document.querySelector('.check').addEventListener('click', function () {
 const resetButton = document.querySelector('.again');
 resetButton.addEventListener('click', () => {
   // keep the highest score if it's better than current max score
+  // adding a note
   if (
     score > highScore &&
     secretNumber === Number(document.querySelector('.guess').value)
