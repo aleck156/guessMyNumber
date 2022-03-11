@@ -29,6 +29,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').innerHTML = highScore;
+    }
   } else if (guess > secretNumber) {
     if (score > 1) {
       message.textContent = 'Too damn high!';
@@ -52,13 +56,6 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 
   // keep the highest score if it's better than current max score
-  if (
-    score > highScore &&
-    secretNumber === Number(document.querySelector('.guess').value)
-  ) {
-    highScore = score;
-    document.querySelector('.highscore').innerHTML = highScore;
-  }
 });
 
 const resetButton = document.querySelector('.again');
