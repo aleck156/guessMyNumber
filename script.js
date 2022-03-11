@@ -7,10 +7,8 @@ const drawSecretNumber = function () {
 let secretNumber = drawSecretNumber();
 let score = 20;
 let highScore = 0;
-// document.querySelector('.number').textContent = secretNumber;
 
 let message = document.querySelector('.message');
-// document.querySelector('.score').textContent = 10;
 
 // for input fields, we use .value instead of .textContent
 document.querySelector('.guess').value = '';
@@ -54,15 +52,12 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = score;
     }
   }
-
-  // keep the highest score if it's better than current max score
 });
 
 const resetButton = document.querySelector('.again');
 resetButton.addEventListener('click', () => {
   // draw a new secret number
   secretNumber = drawSecretNumber();
-  console.log(`drawing new secret number ${secretNumber}`);
 
   // reset message
   message.textContent = 'Start guessing...';
