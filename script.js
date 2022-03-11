@@ -13,7 +13,7 @@ let message = document.querySelector('.message');
 // document.querySelector('.score').textContent = 10;
 
 // for input fields, we use .value instead of .textContent
-document.querySelector('.guess').value = 10;
+document.querySelector('.guess').value = '';
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -50,22 +50,19 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = score;
     }
   }
-});
 
-const resetButton = document.querySelector('.again');
-resetButton.addEventListener('click', () => {
   // keep the highest score if it's better than current max score
   if (
     score > highScore &&
     secretNumber === Number(document.querySelector('.guess').value)
   ) {
-    console.log(
-      `replacing old highest score (${highScore}) with a new value (${score})`
-    );
     highScore = score;
     document.querySelector('.highscore').innerHTML = highScore;
   }
+});
 
+const resetButton = document.querySelector('.again');
+resetButton.addEventListener('click', () => {
   // draw a new secret number
   secretNumber = drawSecretNumber();
   console.log(`drawing new secret number ${secretNumber}`);
@@ -75,9 +72,10 @@ resetButton.addEventListener('click', () => {
 
   // restore background color
   document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 
   // restore initial value of guess number to 10
-  document.querySelector('.guess').value = 10;
+  document.querySelector('.guess').value = '';
 
   // restore the initial question mark
   document.querySelector('.number').textContent = '?';
